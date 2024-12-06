@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
+import {useSnackbar} from "notistack";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom"
 import { Link } from 'react-router-dom';
+
+
+
 
 const AddVehicle = () => {
     const [subMenuOpen, setSubMenuOpen] = useState({
@@ -38,6 +44,52 @@ const AddVehicle = () => {
         const dropdownBtns = document.querySelectorAll('.dropdown-btn');
         dropdownBtns.forEach((btn) => btn.classList.remove('rotate'));
     };
+
+
+
+    // forms ========================================================================
+    const [formData, setFormData] = useState({
+      vin: '',
+      model: '',
+      mileage: '',
+    });
+    const { enqueueSnackbar } = useSnackbar()
+    const navigate = useNavigate()
+    const [isLoading, setIsLoading] = useState(false)
+    
+    const renderAnimatedLabel = (text) => {
+      return text.split('').map((letter, i) => (
+        <span key={i} style={{ transitionDelay: ${i * 50}ms }}>{letter}</span>
+      ));
+    };
+    
+    const handleChange = (e) => {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        setIsLoading(true);
+        await axios.post('http://localhost:5555/subscribe', formData)
+        .then((response)=>{
+          setIsLoading(false)
+          navigate('/')
+          enqueueSnackbar(response.data.message,{variant:'success'})
+        });
+      } catch (error) {
+        console.error('There was an error!', error);
+        enqueueSnackbar('Subscription failed.',{variant:'error'})
+      }
+      finally {
+        setIsLoading(false)
+    }
+    };
+
+
 
 
   return (
@@ -105,7 +157,7 @@ const AddVehicle = () => {
             {subMenuOpen.staffInfo && (
               <ul
                 //second bug className="sub-menu"
-                className={`sub-menu ${subMenuOpen.staffInfo ? "show" : ""}`}
+                className={sub-menu ${subMenuOpen.staffInfo ? "show" : ""}}
               >
                 <div>
                   <li  className="active"><Link to={"/Add-Member"}>Add Member</Link></li>
@@ -190,7 +242,7 @@ const AddVehicle = () => {
             </button>
             {subMenuOpen.procurement && (
               <ul
-                className={`sub-menu ${subMenuOpen.procurement ? "show" : ""}`}
+                className={sub-menu ${subMenuOpen.procurement ? "show" : ""}}
               >
                 <div>
                 <li><Link to={"/Add-vehicle"}>Add vehicle</Link></li>
@@ -202,6 +254,55 @@ const AddVehicle = () => {
           </li>
         </ul>
       </nav>
+
+
+      <main>
+          <div className="form-container">
+    {isLoading ? '<div className="animate-ping w-16 h-16 m-8 rounded-full bg-sky-600"></div>' : ''}
+      <form onSubmit={handleSubmit}>
+        <h2>Add New vehicle</h2>
+
+        <div className="input-box">
+          <input
+            type="text"
+            name="vin"
+            value={formData.vin}
+            onChange={handleChange}
+            required
+          />
+          <label>{renderAnimatedLabel('vin')}</label>
+        </div>
+
+        <div className="input-box">
+          <input
+            type="text"
+            name="model"
+            value={formData.model}
+            onChange={handleChange}
+            required
+          />
+          <label>{renderAnimatedLabel('model')}</label>
+        </div>
+
+
+        
+        <div className="input-box">
+          <input
+            type="text"
+            name="mileage"
+            value={formData.mileage}
+            onChange={handleChange}
+            required
+          />
+          <label>{renderAnimatedLabel('mileage')}</label>
+        </div>
+
+        <div className="input-box">
+          <input disabled={isLoading} type="submit" value="ADD" />
+        </div>
+      </form>
+    </div>
+          </main>
 
     
     </div>
