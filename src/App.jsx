@@ -15,8 +15,8 @@ import React from 'react'
 function App() {
   return (
     <Routes>
-    <Route path='//AWY-human-resource-management-system' element={<Index/>}/>
-    <Route path='//AWY-human-resource-management-system' element={<Index/>}/>
+    <Route path='/' element={<Index/>}/>
+    <Route path='/home' element={<Index/>}/>
     <Route path='/add-member' element={<Addmember/>}/>
     <Route path='/updatemember' element={<UpdateMember/>}/>
     <Route path='/searchmember' element={<SearchMember/>}/>
