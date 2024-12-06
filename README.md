@@ -61,7 +61,7 @@ This project is built using modern web technologies for seamless functionality:
 - **Department:** Faculty of Information Communication Technology
 - **Course Name:** BSc in Software Engineering with Multimedia
 - **Semester:** 2
-- **Assignment:** Take-Home Test (20%)
+
 
 ---
 
@@ -75,7 +75,7 @@ Ensure you have the following installed on your system:
 
 ### **2. Clone the Repository**
 ```bash
-git clone https://github.com/<your-username>/hrms
+git clone https://github.com/Kamohelomokhethi/AWY-human-resource-management-system.git
 cd hrms
 ```
 
@@ -120,8 +120,8 @@ hrms/
 ## 📞 **Contact**
 
 For questions or contributions, feel free to reach out:
-- **Email:** [your-email@example.com](mailto:your-email@example.com)
-- **GitHub:** [Your GitHub Profile](https://github.com/your-username)
+- **Email:** [kamohelomokhethi25@gmail.com](kamohelomokhethi25@gmail.com)
+- **GitHub:** [https://github.com/Kamohelomokhethi](https://github.com/Kamohelomokhethi)
 
 ---
 
