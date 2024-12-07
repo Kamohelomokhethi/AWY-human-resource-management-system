@@ -139,7 +139,7 @@ const NavbarSidebar = ({children}) => {
               className={`sub-menu ${subMenuOpen.procurement ? "show" : ""}`}>
              
                 <div>
-                <li><Link to={"AWY-human-resource-management-system/Add-vehicle"}>Add vehicle</Link></li>
+                <li><Link to={"AWY-human-resource-management-system/add-vehicle"}>Add vehicle</Link></li>
                   <li><Link to={"Search-car"}>Search Vehicle</Link></li>
                   <li><Link to={"Vehicle-status"}>Vehicle Status</Link></li>
                 </div>
