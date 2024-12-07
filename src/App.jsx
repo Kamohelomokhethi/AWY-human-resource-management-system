@@ -12,6 +12,7 @@ import Training from './pages/Training-schedule'
 import Addmember from './pages/Add-member'
 import UpdateMember from './pages/UpdateMember'
 import NavbarSidebar from './pages/navbar'
+import Members from './pages/Members'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Index />} />
         <Route path='/home' element={<Index />} />
         <Route path='/add-member' element={<Addmember />} />
+        <Route path='/members' element={<Members />} />
         <Route path='/updatemember' element={<UpdateMember />} />
         <Route path='/searchmember' element={<SearchMember />} />
         <Route path='/deletemember' element={<DeleteMember />} /> 

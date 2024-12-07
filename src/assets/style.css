@@ -169,6 +169,28 @@ main h1{
 }
 
 
+.members-container {
+  padding: 20px;
+}
+
+.members-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ant-table-tbody > tr > td {
+  text-align: center;
+}
+
+.ant-btn-primary {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.ant-btn-danger {
+  background-color: #f44336;
+  border-color: #f44336;
+}
 
 
 

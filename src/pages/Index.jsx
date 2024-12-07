@@ -1,8 +1,36 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
    
+  const [membercount, setMemberCount] = useState(0); 
+  const [vehiclecount, setVehicleCount] = useState(0); 
+
+  const MemberCount = () =>{
+    axios.get('https://hrms-server-euux.onrender.com/members')
+    .then((response) => { 
+      setMemberCount(response.data.count);    
+    })
+    .catch((error) => {
+      console.error('Error fetching members:', error);
+    });
+  }
+
+  const VehicleCount = () =>{
+    axios.get('https://hrms-server-euux.onrender.com/vehicles')
+    .then((response) => { 
+      setVehicleCount(response.data.count);    
+    })
+    .catch((error) => {
+      console.error('Error fetching members:', error);
+    });
+  }
+  useEffect(() => {
+    MemberCount();
+    VehicleCount();
+  }, []);
+
 
   return (
    <>
@@ -16,7 +44,7 @@ const Index = () => {
             <div className="card">
               <div className="total">
                 <h3>Total Employees</h3>
-                <p>10</p>
+                <p>{membercount}</p>
               </div>
 
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
@@ -37,7 +65,7 @@ const Index = () => {
             <div className="card">
               <div className="total">
                 <h3>Procurement</h3>
-                <p className="name">Total Cars: 12</p>
+                <p className="name">Total Cars: {vehiclecount}</p>
                 <p className="name">Available: 5</p>
                 <p className="name">In Service: 7</p>
               </div>

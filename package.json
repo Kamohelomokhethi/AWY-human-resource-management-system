@@ -1,6 +1,6 @@
 {
   "name": "awy-hr-system",
- "homepage": "https://Kamohelomokhethi.github.io/AWY-human-resource-management-system",
+  "homepage": "https://Kamohelomokhethi.github.io/AWY-human-resource-management-system",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "antd": "^5.22.3",
     "axios": "^1.7.9",
     "gh-pages": "^6.2.0",
     "notistack": "^3.0.1",
