@@ -27,7 +27,7 @@ function App() {
         <Route path='/training-Schedule' element={<Training />} />
         <Route path='/points-overview' element={<Points />} />
         <Route path='/vehicle-status' element={<VehicleStatus />} />
-        <Route path='/add-vehicle' element={<AddVehicle />} />
+        <Route path='/Add-vehicle' element={<AddVehicle />} />
         <Route path='/search-car' element={<SearchCar />} />
       </Routes>
     </NavbarSidebar>

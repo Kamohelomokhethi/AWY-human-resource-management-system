@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Sidebar = () => {
+const Index = () => {
    
 
   return (
@@ -50,4 +50,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Index;
