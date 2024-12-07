@@ -94,3 +94,4 @@ const AddVehicle = () => {
   );
 };
 
+export default AddVehicle;
