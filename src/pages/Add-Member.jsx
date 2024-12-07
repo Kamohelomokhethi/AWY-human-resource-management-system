@@ -56,8 +56,8 @@ const Addmember = () => {
 
         
   return (
-    <>
-     
+    
+<>
           <div className="form-container">
     {isLoading ? '<div className="animate-ping w-16 h-16 m-8 rounded-full bg-sky-600"></div>' : ''}
       <form onSubmit={handleSubmit}>
@@ -140,7 +140,7 @@ const Addmember = () => {
         </div>
       </form>
     </div>
-         
+
     </>
   );
 };

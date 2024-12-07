@@ -88,7 +88,7 @@ const NavbarSidebar = ({children}) => {
               //second bug className="sub-menu"
               className={`sub-menu ${subMenuOpen.staffInfo ? "show" : ""}`}>
                 <div>
-                  <li><Link to={"/Add-Member"}>Add Member</Link></li>
+                  <li><Link to={"Add-Member"}>Add Member</Link></li>
                   <li><Link to={"/"}>Update Member</Link></li>
                   <li><Link to={"/DeleteMember"}>Delete Member</Link></li>
                   <li><Link to={"/SearchMember"}>Search Member</Link></li>
