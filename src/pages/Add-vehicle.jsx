@@ -3,7 +3,7 @@ import { useSnackbar } from 'notistack';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const AddVehicle = () => {
+export default AddVehicle = () => {
   // Form state
   const [formData, setFormData] = useState({
     vin: '',
@@ -94,4 +94,3 @@ const AddVehicle = () => {
   );
 };
 
-export default AddVehicle;
