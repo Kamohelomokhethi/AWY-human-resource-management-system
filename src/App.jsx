@@ -12,7 +12,6 @@ import Training from './pages/Training-schedule'
 import Addmember from './pages/Add-member'
 import UpdateMember from './pages/UpdateMember'
 import NavbarSidebar from './pages/navbar'
-import NavbarSidebar from './pages/navbar'
 
 function App() {
   return (
