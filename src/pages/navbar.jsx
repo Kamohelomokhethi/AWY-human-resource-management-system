@@ -138,8 +138,7 @@ const NavbarSidebar = ({children}) => {
              
                 <div>
                 <li><Link to={"Add-vehicle"}>Add vehicle</Link></li>
-                  <li><Link to={"Search-car"}>Search Vehicle</Link></li>
-                  <li><Link to={"Vehicle-status"}>Vehicle Status</Link></li>
+                  <li><Link to={"vehicles"}>Vehicles</Link></li>
                 </div>
               </ul>
             )}

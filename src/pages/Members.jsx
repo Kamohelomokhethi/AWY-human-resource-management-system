@@ -75,21 +75,25 @@ const Members = () => {
       title: 'Staff Number',
       dataIndex: 'staffNumber',
       key: 'staffNumber',
+      render: (text) => <span data-label="Staff Number">{text}</span>,
     },
     {
       title: 'Full Name',
       dataIndex: 'fullNames',
       key: 'fullNames',
+      render: (text) => <span data-label="Full Name">{text}</span>,
     },
     {
       title: 'Position',
       dataIndex: 'position',
       key: 'position',
+      render: (text) => <span data-label="Position">{text}</span>,
     },
     {
       title: 'Salary',
       dataIndex: 'salary',
       key: 'salary',
+      render: (text) => <span data-label="Salary">{text}</span>,
     },
     {
       title: 'Actions',
@@ -130,6 +134,8 @@ const Members = () => {
         dataSource={filteredMembers} 
         rowKey="_id" 
         pagination={{ pageSize: 5 }} // Pagination configuration
+        responsive // Makes the table responsive
+        scroll={{ x: 'max-content' }} // Ensure it scrolls horizontally if the content is wider than the screen
       />
 
       {/* Edit Member Modal */}

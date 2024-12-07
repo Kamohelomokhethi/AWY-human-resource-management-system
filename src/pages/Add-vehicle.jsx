@@ -43,7 +43,7 @@ const AddVehicle = () => {
     try {
       const response = await axios.post(apiUrl, formData);
       enqueueSnackbar(response.data.message, { variant: 'success' });
-      navigate('/'); // Redirect to the homepage
+      navigate('/vehicles'); // Redirect to the homepage
     } catch (error) {
       console.error('There was an error!', error);
       // Display error message from backend if available

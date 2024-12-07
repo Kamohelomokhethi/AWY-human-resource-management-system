@@ -185,11 +185,61 @@ main h1{
 .ant-btn-primary {
   background-color: #4CAF50;
   border-color: #4CAF50;
+  color: #fff;
 }
 
 .ant-btn-danger {
   background-color: #f44336;
   border-color: #f44336;
+  color: #fff;
+}
+
+/* Table responsiveness for mobile */
+@media (max-width: 768px) {
+  .members-container .ant-table {
+    width: 100% !important;
+    display: block;
+    position: relative;
+  }
+
+  /* Hide table headers for mobile view */
+  .ant-table-thead {
+    display: none;
+  }
+
+  /* Style for table rows to behave like key-value pairs on mobile */
+  .ant-table-tbody > tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fafafa;
+  }
+
+  /* Style for table cells on mobile */
+  .ant-table-tbody > tr > td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: none;
+    text-align: left;
+  }
+
+  /* Add labels for each cell */
+  .ant-table-tbody > tr > td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  /* Right align the data in mobile view */
+  .ant-table-tbody > tr > td:nth-child(odd) {
+    text-align: left; /* For columns like "Staff Number" or "Full Name" */
+  }
+  .ant-table-tbody > tr > td:nth-child(even) {
+    text-align: right; /* For columns like "Salary" or "Position" */
+  }
 }
 
 
