@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
+import { useSnackbar } from 'notistack';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -94,4 +95,3 @@ const AddVehicle = () => {
   );
 };
 
-export default AddVehicle;

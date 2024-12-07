@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import {useSnackbar} from "notistack";
+import { useSnackbar } from 'notistack';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Addmember = () => {
     
@@ -32,116 +31,66 @@ const Addmember = () => {
       });
     };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        setIsLoading(true);
-        await axios.post('http://localhost:5555/subscribe', formData)
-        .then((response)=>{
-          setIsLoading(false)
-          navigate('/')
-          enqueueSnackbar(response.data.message,{variant:'success'})
-        });
-      } catch (error) {
-        console.error('There was an error!', error);
-        enqueueSnackbar('Subscription failed.',{variant:'error'})
-      }
-      finally {
-        setIsLoading(false)
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const response = await axios.post('http://localhost:5555/subscribe', formData);
+      enqueueSnackbar(response.data.message, { variant: 'success' });
+      navigate('/');
+    } catch (error) {
+      console.error('There was an error!', error);
+      enqueueSnackbar('Subscription failed.', { variant: 'error' });
+    } finally {
+      setIsLoading(false);
     }
-    };
+  };
 
-
-
-
-        
   return (
-    
-<>
-          <div className="form-container">
-    {isLoading ? '<div className="animate-ping w-16 h-16 m-8 rounded-full bg-sky-600"></div>' : ''}
+    <div className="form-container">
+      {isLoading && <div className="animate-ping w-16 h-16 m-8 rounded-full bg-sky-600"></div>}
       <form onSubmit={handleSubmit}>
-        <h2>Add member</h2>
+        <h2>Add New Vehicle</h2>
 
         <div className="input-box">
           <input
             type="text"
-            name="staffNumber"
-            value={formData.staffNumber}
+            name="vin"
+            value={formData.vin}
             onChange={handleChange}
             required
           />
-          <label>{renderAnimatedLabel('staff_Number')}</label>
+          <label>{renderAnimatedLabel('vin')}</label>
         </div>
 
         <div className="input-box">
           <input
             type="text"
-            name="fullNames"
-            value={formData.fullNames}
+            name="model"
+            value={formData.model}
             onChange={handleChange}
             required
           />
-          <label>{renderAnimatedLabel('Full_names')}</label>
-        </div>
-
-
-        
-        <div className="input-box">
-          <input
-            type="text"
-            name="idNumber"
-            value={formData.idNumber}
-            onChange={handleChange}
-            required
-          />
-          <label>{renderAnimatedLabel('id_Number')}</label>
-        </div>
-
-
-        <div className="input-box">
-          <input
-            type="text"
-            name="qualifications"
-            value={formData.qualifications}
-            onChange={handleChange}
-            required
-          />
-          <label>{renderAnimatedLabel('qualifications')}</label>
-        </div>
-
-
-        <div className="input-box">
-          <input
-            type="text"
-            name="position"
-            value={formData.position}
-            onChange={handleChange}
-            required
-          />
-          <label>{renderAnimatedLabel('position')}</label>
+          <label>{renderAnimatedLabel('model')}</label>
         </div>
 
         <div className="input-box">
           <input
             type="text"
-            name="salary"
-            value={formData.salary}
+            name="mileage"
+            value={formData.mileage}
             onChange={handleChange}
             required
           />
-          <label>{renderAnimatedLabel('salary')}</label>
+          <label>{renderAnimatedLabel('mileage')}</label>
         </div>
-
-       
 
         <div className="input-box">
           <input disabled={isLoading} type="submit" value="ADD" />
         </div>
       </form>
     </div>
-
-    </>
   );
 };
 
